@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+
+    <section>
+        <article class="cykel">
+            <button class="luk">◁</button>
+            <h2></h2>
+            <img src="" alt="">
+            <p class="pris"></p>
+            <p class="tekst"></p>
+
+        </article>
+    </section>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get("id");
+
+
+        let enkelt;
+        //lad vores funktion enkelt være
+        document.addEventListener("DOMContentLoaded", hentJson);
+        //
+        document.querySelector(".luk").addEventListener("click", () => {
+            history.back();
+        })
+        //Det der gør at knappen kommer tilbage til den sidste side
+
+        async function hentJson() {
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
+            //devinerer vores URL, så vi ikke behøver skrive den helt ud
+
+            let myJson = await fetch(url);
+            //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
+            enkelt = await myJson.json();
+            console.log(visIndhold);
+            visIndhold();
+            //kalder på vores funktion: visIndhold
+        }
+
+        function start() {
+            hentJson();
+        }
+        //funktion start kalder på funtionen hensJson
+
+        function visIndhold() {
+
+            document.querySelector("h2").textContent = enkelt.titel;
+            document.querySelector(".pris").textContent = enkelt.pris;
+            document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
+            document.querySelector("img").src = enkelt.billede.guid;
+
+        }
+        //alt indhold på selve siden
+
+    </script>
+</body>
+
+</html>

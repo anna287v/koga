@@ -10,7 +10,26 @@
 
 <body>
     <p>test jasmin</p>
-    <script src=""></script>
-</body>
+    <h1></h1>
+    <main>
+        <article></article>
+    </main>
+    <script>
+        let indhold;
+        document.addEventListener("DOMContentLoaded", hentJson);
 
-</html>
+        async function hentJson() {
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/pages/13"
+
+            let myJson = await fetch(url);
+            indhold = await myJson.json();
+            console.log(indhold);
+            visIndhold();
+        }
+
+        function visIndhold() {
+            document.querySelector("h1").textContent = indhold.title.rendered;
+            document.querySelector("article").innerHTML = indhold.content.rendered;
+        }
+    </script>
+</body></html>
