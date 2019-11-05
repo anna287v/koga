@@ -14,7 +14,7 @@
         <article>
             <h2></h2>
             <img src="" alt="">
-            <p></p>
+
             <p class="pris"></p>
         </article>
     </template>
@@ -50,7 +50,7 @@
                 //fortæller vores content hvordan det skal fordeles i forhold til vores template
                 klon.querySelector("h2").textContent = enkelt.titel;
                 klon.querySelector(".pris").textContent = enkelt.pris;
-                klon.querySelector("p").innerHTML = enkelt.beskrivelse;
+
                 klon.querySelector("img").src = enkelt.billede.guid;
                 //fortæller hvilket indhold der skal være på vores side
 
@@ -64,5 +64,8 @@
             //document.querySelector("h1").textContent = indhold.title.rendered;
             //document.querySelector("article").innerHTML = indhold.content.rendered;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
