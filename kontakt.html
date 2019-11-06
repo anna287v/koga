@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <template>
+        <article>
+            <h2></h2>
+            <img src="" alt="">
+            <p></p>
+        </article>
+    </template>
+    <h1></h1>
+    <main>
+        <section></section>
+    </main>
+
+    <script>
+        let indhold;
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        async function hentJson() {
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/pages/19"
+
+            let myJson = await fetch(url);
+            indhold = await myJson.json();
+            console.log(indhold);
+            visIndhold();
+        }
+
+        function visIndhold() {
+            document.querySelector("h1").textContent = indhold.title.rendered;
+            document.querySelector("section").innerHTML = indhold.content.rendered;
+        }
+
+    </script>
+</body>
+
+</html>
