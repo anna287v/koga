@@ -12,10 +12,10 @@
 
     <template>
         <article>
-            <h2></h2>
             <img src="" alt="">
-
+            <h2></h2>
             <p class="pris"></p>
+            <p class="mere"></p>
         </article>
     </template>
     <h1></h1>
@@ -52,6 +52,7 @@
                 klon.querySelector(".pris").textContent = enkelt.pris;
 
                 klon.querySelector("img").src = enkelt.billede.guid;
+                klon.querySelector(".mere").textContent = enkelt.ls_mere;
                 //fortæller hvilket indhold der skal være på vores side
 
                 dest.appendChild(klon);

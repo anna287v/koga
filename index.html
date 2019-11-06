@@ -9,14 +9,21 @@
 </head>
 
 <body>
-    <p>test jasmin</p>
+    <p></p>
     <h1></h1>
     <main>
         <article></article>
+        <section id="menu-container"></section>
     </main>
     <script>
         let indhold;
-        document.addEventListener("DOMContentLoaded", hentJson);
+        const dest = document.querySelector("#menu-container");
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+            loadMenu();
+        }
 
         async function hentJson() {
             const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/pages/13"
@@ -25,6 +32,18 @@
             indhold = await myJson.json();
             console.log(indhold);
             visIndhold();
+        }
+
+        async function loadMenu() {
+            console.log("loadMenu", loadMenu);
+            let data = await fetch("nav.html");
+            let navigation = await data.text();
+            opretMenu(navigation);
+
+        }
+
+        function opretMenu(e) {
+            document.querySelector("nav").innerHTML = e;
         }
 
         function visIndhold() {

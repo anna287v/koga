@@ -37,7 +37,7 @@
         //Det der gør at knappen kommer tilbage til den sidste side
 
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel" + postId;
             //devinerer vores URL, så vi ikke behøver skrive den helt ud
 
             let myJson = await fetch(url);
@@ -58,8 +58,7 @@
             document.querySelector("h2").textContent = enkelt.titel;
             document.querySelector(".pris").textContent = enkelt.pris;
             document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
-            document.querySelector("img").src = enkelt.billede.guid;
-
+            //            document.querySelector("img").src = enkelt.billede.guid;
         }
         //alt indhold på selve siden
 
