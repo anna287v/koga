@@ -64,3 +64,65 @@ h1 {
 
 
 /*DETALJESIDE*/
+
+button {
+    font-size: 2.5rem;
+    /*Den indre afstand i boksen*/
+    padding: 0;
+    /*Fjerner kanten på knapperne*/
+    border: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+
+}
+
+.detalje_side {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(750px, 1fr));
+    grid-gap: 1rem;
+    padding: 10rem;
+
+}
+
+/*BURGER MENU*/
+
+/*Når burger menuen er lukket skal den transforme således*/
+.hidden {
+    transform: translateX(-100%);
+    display: none;
+}
+
+/*Selve burger knappen*/
+#menuknap {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: sans-serif;
+    /*    background-color: black;*/
+}
+
+/*Menuen når den er foldet ud*/
+#menu {
+    list-style-type: none;
+    transition: transform .3s;
+    transform-origin: top left;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+Når siden er over 600px skal burger menuen ikke vises @media only screen and (min-width: 600px) {
+
+    #menuknap {
+        display: none;
+    }
+
+    #menu.hidden {
+        transform: translateX(0);
+        display: block;
+    }
+
+    #menu li {
+        display: inline-block;
+    }
+}
+
+/*BURGER SLUT*/

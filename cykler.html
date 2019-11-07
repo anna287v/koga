@@ -22,9 +22,10 @@
     <main>
         <section class="cykler"></section>
     </main>
-
+    <script href="burger.js"></script>
     <script>
         let indhold;
+
         //lader funktionen indhold blive
         let dest = document.querySelector("section");
         //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
@@ -36,7 +37,7 @@
             //loadMenu();
         }
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel";
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/?=100";
 
             //definerer vores url, så den linker til vores hjemmeside
 

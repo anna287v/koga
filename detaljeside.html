@@ -11,11 +11,12 @@
 
 <body>
     <nav></nav>
-    <section>
+    <button class="luk">←</button>
+    <section class="detalje_side">
         <article class="cykel">
-            <button class="luk">◁</button>
-            <h2></h2>
+            <p class="kategorier"></p>
             <img src="" alt="">
+            <h2></h2>
             <p class="pris"></p>
             <p class="tekst"></p>
 
@@ -28,14 +29,27 @@
 
         document.querySelector("#menu-container");
         let enkelt;
+        let alleData;
         //lad vores funktion enkelt være
         document.addEventListener("DOMContentLoaded", start);
         //
-
         function start() {
             hentJson();
-            //loadMenu();
+            const filterKnapper = document.querySelectorAll("nav button"); //selector all - vælger alle buttons inde i nav'en
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerAlleData)); //knap er vores variabel navn, som man selv finder på
+            // document.querySelector("#detalje").style.display = "none";            skjulDetalje(); //kaldes på funtionen skulDetalje, da pop-up vinduet ikke skal vises i funktionen start
+            //          loadData(); //kaldet på funtionen loadData, da dataen skal loades fra sheetet
         }
+
+        //funktionen der filtrerer data fra vores sheet (json)
+        function filtrerAlleData() {
+            filter = this.dataset.data; //sæt variabel "filter" til aktuel værdi
+            document.querySelector(".valgt").classList.remove("valgt"); //fjern klassen valgt fra aktuel knap
+            this.classList.add("valgt");
+
+        }
+        //loadMenu();
+
         document.querySelector(".luk").addEventListener("click", () => {
             history.back();
         })
@@ -44,37 +58,38 @@
         async function hentJson() {
             const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
             //devinerer vores URL, så vi ikke behøver skrive den helt ud
-
             let myJson = await fetch(url);
+            alleData = await myJson.json();
             //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
-            enkelt = await myJson.json();
+//          enkelt = await myJson.json();
             console.log(visIndhold);
             visIndhold();
             //kalder på vores funktion: visIndhold
         }
         async function loadMenu() {
-
             let data = await fetch("nav.html");
             let navigation = await data.text();
             console.log("loadMenu", navigation);
             opretMenu(navigation);
-
         }
 
         function opretMenu(e) {
             document.querySelector("nav").innerHTML = e;
         }
 
-
         function visIndhold() {
+            alleData.feed.entry.forEach(data => { //loop igennem json data
+                if (data.kategorier == filter || filter == "cykler"); {
+                    document.querySelector(".kategorier").textContent = enkelt.kategorier;
+                    document.querySelector("h2").textContent = enkelt.titel;
+                    document.querySelector(".pris").textContent = enkelt.pris;
+                    document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
+                    document.querySelector("img").src = enkelt.billede.guid;
+                }
+            });
 
-            document.querySelector("h2").textContent = enkelt.titel;
-            document.querySelector(".pris").textContent = enkelt.pris;
-            document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
-            //            document.querySelector("img").src = enkelt.billede.guid;
         }
         //alt indhold på selve siden
-
     </script>
 </body>
 
