@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <nav></nav>
     <template>
         <article>
             <img src="" alt="">
@@ -28,11 +28,15 @@
         //lader funktionen indhold blive
         let dest = document.querySelector("section");
         //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
-        document.addEventListener("DOMContentLoaded", hentJson);
+        document.querySelector("#menu-container");
+        document.addEventListener("DOMContentLoaded", start);
         //fortæller siden at documentet skal loade indholdet og hente indhold fra json
-
+        function start() {
+            hentJson();
+            loadMenu();
+        }
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel";
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel?per_page=100";
 
             //definerer vores url, så den linker til vores hjemmeside
 
@@ -41,6 +45,18 @@
             indhold = await myJson.json();
             //indhold skal vente på at vise sig til json er blevet kaldt
             visIndhold();
+        }
+        async function loadMenu() {
+
+            let data = await fetch("nav.html");
+            let navigation = await data.text();
+            console.log("loadMenu", navigation);
+            opretMenu(navigation);
+
+        }
+
+        function opretMenu(e) {
+            document.querySelector("nav").innerHTML = e;
         }
 
         function visIndhold() {
@@ -65,5 +81,8 @@
             //document.querySelector("h1").textContent = indhold.title.rendered;
             //document.querySelector("article").innerHTML = indhold.content.rendered;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

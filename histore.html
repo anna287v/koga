@@ -9,14 +9,14 @@
 </head>
 
 <body>
+    <nav></nav>
 
-    <template>
-        <article>
-            <h2></h2>
-            <img src="" alt="">
-            <p></p>
-        </article>
-    </template>
+    <article>
+        <h2></h2>
+        <img src="" alt="">
+        <p></p>
+    </article>
+
     <h1></h1>
     <main>
         <section></section>
@@ -24,7 +24,13 @@
 
     <script>
         let indhold;
-        document.addEventListener("DOMContentLoaded", hentJson);
+        const dest = document.querySelector("#menu-container");
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+            loadMenu();
+        }
 
         async function hentJson() {
             const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/pages/68"
@@ -35,12 +41,22 @@
             visIndhold();
         }
 
+        async function loadMenu() {
+
+            let data = await fetch("nav.html");
+            let navigation = await data.text();
+            console.log("loadMenu", navigation);
+            opretMenu(navigation);
+
+        }
+
+        function opretMenu(e) {
+            document.querySelector("nav").innerHTML = e;
+        }
+
         function visIndhold() {
             document.querySelector("h1").textContent = indhold.title.rendered;
             document.querySelector("section").innerHTML = indhold.content.rendered;
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

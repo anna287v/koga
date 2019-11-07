@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <nav></nav>
     <section>
         <article class="cykel">
             <button class="luk">◁</button>
@@ -26,11 +26,16 @@
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get("id");
 
-
+        document.querySelector("#menu-container");
         let enkelt;
         //lad vores funktion enkelt være
-        document.addEventListener("DOMContentLoaded", hentJson);
+        document.addEventListener("DOMContentLoaded", start);
         //
+
+        function start() {
+            hentJson();
+            loadMenu();
+        }
         document.querySelector(".luk").addEventListener("click", () => {
             history.back();
         })
@@ -47,11 +52,19 @@
             visIndhold();
             //kalder på vores funktion: visIndhold
         }
+        async function loadMenu() {
 
-        function start() {
-            hentJson();
+            let data = await fetch("nav.html");
+            let navigation = await data.text();
+            console.log("loadMenu", navigation);
+            opretMenu(navigation);
+
         }
-        //funktion start kalder på funtionen hensJson
+
+        function opretMenu(e) {
+            document.querySelector("nav").innerHTML = e;
+        }
+
 
         function visIndhold() {
 
@@ -61,8 +74,5 @@
             //            document.querySelector("img").src = enkelt.billede.guid;
         }
         //alt indhold på selve siden
-
     </script>
-</body>
-
-</html>
+</body></html>
