@@ -13,6 +13,13 @@ h1 {
 
 /*FORSIDE*/
 
+.forside {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-gap: 1rem;
+    padding: 3rem;
+}
+
 
 
 /*MENU*/
@@ -109,7 +116,9 @@ button {
     text-align: center;
 }
 
-Når siden er over 600px skal burger menuen ikke vises @media only screen and (min-width: 600px) {
+/*Når siden er over 600px skal burger menuen ikke vises*/
+
+@media only screen and (min-width: 600px) {
 
     #menuknap {
         display: none;
