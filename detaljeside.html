@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -34,7 +34,7 @@
 
         function start() {
             hentJson();
-            loadMenu();
+            //loadMenu();
         }
         document.querySelector(".luk").addEventListener("click", () => {
             history.back();
@@ -42,7 +42,7 @@
         //Det der gør at knappen kommer tilbage til den sidste side
 
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel" + postId;
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
             //devinerer vores URL, så vi ikke behøver skrive den helt ud
 
             let myJson = await fetch(url);
@@ -74,5 +74,8 @@
             //            document.querySelector("img").src = enkelt.billede.guid;
         }
         //alt indhold på selve siden
+
     </script>
-</body></html>
+</body>
+
+</html>

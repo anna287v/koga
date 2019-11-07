@@ -20,7 +20,7 @@
     </template>
     <h1></h1>
     <main>
-        <section></section>
+        <section class="cykler"></section>
     </main>
 
     <script>
@@ -33,10 +33,10 @@
         //fortæller siden at documentet skal loade indholdet og hente indhold fra json
         function start() {
             hentJson();
-            loadMenu();
+            //loadMenu();
         }
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel?per_page=100";
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel";
 
             //definerer vores url, så den linker til vores hjemmeside
 
@@ -46,6 +46,8 @@
             //indhold skal vente på at vise sig til json er blevet kaldt
             visIndhold();
         }
+
+        //menuen bliver linket og loadet herunder
         async function loadMenu() {
 
             let data = await fetch("nav.html");
