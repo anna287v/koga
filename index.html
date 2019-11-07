@@ -30,7 +30,7 @@
         }
 
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/forside";
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/pages/13";
 
             let myJson = await fetch(url);
             indhold = await myJson.json();
