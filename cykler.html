@@ -10,6 +10,15 @@
 
 <body>
     <nav></nav>
+
+    <nav class="menu2">
+        <button data-enkelt="Race" class="valgt">Race</button>
+        <button data-enkelt="City Tour">City Tour</button>
+        <button data-enkelt="Mountain Bike">Mountain Bike</button>
+        <button data-enkelt="Trekking">Trekking</button>
+        <button data-enkelt="E-bike">E-bike</button>
+    </nav>
+
     <template>
         <article>
             <img src="" alt="">
@@ -24,6 +33,7 @@
     </main>
     <script href="burger.js"></script>
     <script>
+        let filter = "alle";
         let indhold;
 
         //lader funktionen indhold blive
@@ -36,8 +46,20 @@
             hentJson();
             //loadMenu();
         }
+
+
+        function filtrerAlleData() {
+            filter = this.dataset.enkelt; //sæt variabel "filter" til aktuel værdi
+            document.querySelector(".valgt").classList.remove("valgt"); //fjern klassen valgt fra aktuel knap
+            this.classList.add("valgt");
+
+            visIndhold();
+
+        }
+
+
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/?=100";
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel?per_page=100";
 
             //definerer vores url, så den linker til vores hjemmeside
 
@@ -64,20 +86,24 @@
         function visIndhold() {
             indhold.forEach(enkelt => {
 
-                const klon = document.querySelector("template").cloneNode(true).content;
-                //fortæller vores content hvordan det skal fordeles i forhold til vores template
-                klon.querySelector("h2").textContent = enkelt.titel;
-                klon.querySelector(".pris").textContent = enkelt.pris;
+                if (filter == "alle" || enkelt.kategorier == filter) {
+                    console.log("Kategori", enkelt.kategorier)
+                    const klon = document.querySelector("template").cloneNode(true).content;
+                    //fortæller vores content hvordan det skal fordeles i forhold til vores template
+                    klon.querySelector("h2").textContent = enkelt.titel;
+                    klon.querySelector(".pris").textContent = enkelt.pris;
 
-                klon.querySelector("img").src = enkelt.billede.guid;
-                klon.querySelector(".mere").textContent = enkelt.ls_mere;
-                //fortæller hvilket indhold der skal være på vores side
+                    klon.querySelector("img").src = enkelt.billede.guid;
+                    klon.querySelector(".mere").textContent = enkelt.ls_mere;
+                    //fortæller hvilket indhold der skal være på vores side
 
-                dest.appendChild(klon);
-                dest.lastElementChild.addEventListener("click", () => {
-                    location.href = `detaljeside.html?id=${enkelt.id}`;
-                    //siger til vores side, at den skal klikke ind på detaljesiden (link), når man trykker på et billede
-                })
+                    dest.appendChild(klon);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        location.href = `detaljeside.html?id=${enkelt.id}`;
+                        //siger til vores side, at den skal klikke ind på detaljesiden (link), når man trykker på et billede
+                    })
+
+                }
             })
 
             //document.querySelector("h1").textContent = indhold.title.rendered;

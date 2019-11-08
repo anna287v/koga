@@ -10,30 +10,44 @@
 </head>
 
 <body>
-    <nav></nav>
+    <nav>
+    </nav>
+    <nav class="menu2">
+                <button data-data="Race" class="valgt">Race</button>
+                <button data-data="City Tour">City Tour</button>
+                <button data-data="Mountain Bike">Mountain Bike</button>
+                <button data-data="Trekking">Trekking</button>
+                <button data-data="E-bike">E-bike</button>
+    </nav>
+
     <button class="luk">←</button>
-    <section class="detalje_side">
+
+       <section class="detalje_side">
         <article class="cykel">
             <p class="kategorier"></p>
             <img src="" alt="">
             <h2></h2>
             <p class="pris"></p>
             <p class="tekst"></p>
-
         </article>
     </section>
 
-    <script>
+
+
+       <script>
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get("id");
 
         document.querySelector("#menu-container");
         let enkelt;
         let alleData;
+        let filter = "cykler"
+
         //lad vores funktion enkelt være
         document.addEventListener("DOMContentLoaded", start);
         //
-        function start() {
+
+    function start() {
             hentJson();
             const filterKnapper = document.querySelectorAll("nav button"); //selector all - vælger alle buttons inde i nav'en
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerAlleData)); //knap er vores variabel navn, som man selv finder på
@@ -46,6 +60,8 @@
             filter = this.dataset.data; //sæt variabel "filter" til aktuel værdi
             document.querySelector(".valgt").classList.remove("valgt"); //fjern klassen valgt fra aktuel knap
             this.classList.add("valgt");
+
+             visIndhold();
 
         }
         //loadMenu();
@@ -61,7 +77,7 @@
             let myJson = await fetch(url);
             alleData = await myJson.json();
             //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
-//          enkelt = await myJson.json();
+            //          enkelt = await myJson.json();
             console.log(visIndhold);
             visIndhold();
             //kalder på vores funktion: visIndhold
@@ -78,8 +94,8 @@
         }
 
         function visIndhold() {
-            alleData.feed.entry.forEach(data => { //loop igennem json data
-                if (data.kategorier == filter || filter == "cykler"); {
+            alleData.feed.entry.forEach(kategorier => { //loop igennem json data
+                if (kategorier == filter || filter == "cykler"); {
                     document.querySelector(".kategorier").textContent = enkelt.kategorier;
                     document.querySelector("h2").textContent = enkelt.titel;
                     document.querySelector(".pris").textContent = enkelt.pris;
@@ -89,6 +105,7 @@
             });
 
         }
+
         //alt indhold på selve siden
     </script>
 </body>
