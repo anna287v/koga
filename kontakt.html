@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<nav></nav>
+    <nav></nav>
 
     <article>
         <h2></h2>
@@ -27,9 +27,10 @@
 
 
     <script>
+        document.addEventListener("DOMContentLoaded", start);
+
         let indhold;
         const dest = document.querySelector("#menu-container");
-        document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             hentJson();

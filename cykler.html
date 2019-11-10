@@ -12,39 +12,48 @@
     <nav></nav>
 
     <nav class="menu2">
-        <button data-enkelt="Race" class="valgt">Race</button>
-        <button data-enkelt="City Tour">City Tour</button>
+        <button data-enkelt="alle" class="valgt">Alle</button>
+        <button data-enkelt="Race">Race</button>
+        <button data-enkelt="City Tour">City T</button>
         <button data-enkelt="Mountain Bike">Mountain Bike</button>
         <button data-enkelt="Trekking">Trekking</button>
         <button data-enkelt="E-bike">E-bike</button>
     </nav>
 
     <template>
-        <article>
+        <article class="enkelt">
             <img src="" alt="">
             <h2></h2>
             <p class="pris"></p>
             <p class="mere"></p>
         </article>
     </template>
+
     <h1></h1>
+
     <main>
         <section class="cykler"></section>
     </main>
-    <script href="burger.js"></script>
+
+    <!--   <script href="burger.js"></script>-->
+
+
     <script>
+        //fortæller siden at documentet skal loade indholdet og hente indhold fra json
+        document.addEventListener("DOMContentLoaded", start);
+
         let filter = "alle";
         let indhold;
+        let data;
 
         //lader funktionen indhold blive
         let dest = document.querySelector("section");
         //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
         document.querySelector("#menu-container");
-        document.addEventListener("DOMContentLoaded", start);
-        //fortæller siden at documentet skal loade indholdet og hente indhold fra json
+
         function start() {
             hentJson();
-            //loadMenu();
+            loadMenu();
         }
 
 
@@ -60,7 +69,6 @@
 
         async function hentJson() {
             const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel?per_page=100";
-
             //definerer vores url, så den linker til vores hjemmeside
 
             let myJson = await fetch(url);
@@ -70,6 +78,7 @@
             visIndhold();
         }
 
+
         //menuen bliver linket og loadet herunder
         async function loadMenu() {
 
@@ -77,18 +86,23 @@
             let navigation = await data.text();
             console.log("loadMenu", navigation);
             opretMenu(navigation);
+
         }
 
         function opretMenu(e) {
             document.querySelector("nav").innerHTML = e;
         }
 
+
+
         function visIndhold() {
             indhold.forEach(enkelt => {
-
                 if (filter == "alle" || enkelt.kategorier == filter) {
+
                     console.log("Kategori", enkelt.kategorier)
+
                     const klon = document.querySelector("template").cloneNode(true).content;
+
                     //fortæller vores content hvordan det skal fordeles i forhold til vores template
                     klon.querySelector("h2").textContent = enkelt.titel;
                     klon.querySelector(".pris").textContent = enkelt.pris;

@@ -24,6 +24,41 @@ h1 {
 
 /*MENU*/
 
+/*HEADER MED NAV INDE I*/
+
+/*Det besøgte link*/
+header nav button:visited {
+    color: #fcb268;
+}
+
+/*Når man hover over links */
+header nav button:hover {
+    color: #fcb268;
+}
+
+/*Farven på knapperne når de bliver trykket på*/
+.valgt {
+    color: #fcb268;
+}
+
+/*Boksen rundt om knapperne*/
+header nav button {
+    /*Den ydre afstand fra boksens kant til den næste boks*/
+    margin: 0 1rem;
+}
+
+/*Selve knappen*/
+button {
+    font-size: 1.5rem;
+    /*Den indre afstand i boksen*/
+    padding: 0;
+    /*Fjerner kanten på knapperne*/
+    border: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+
+}
+
 
 /*HISTORIE*/
 .historie {
