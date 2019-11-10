@@ -1,112 +1,107 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>document</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-    <nav>
-    </nav>
+    <nav></nav>
+
     <nav class="menu2">
-                <button data-data="Race" class="valgt">Race</button>
-                <button data-data="City Tour">City Tour</button>
-                <button data-data="Mountain Bike">Mountain Bike</button>
-                <button data-data="Trekking">Trekking</button>
-                <button data-data="E-bike">E-bike</button>
+        <button data-enkelt="alle" class="valgt">Alle</button>
+        <button data-enkelt="Race">Race</button>
+        <button data-enkelt="City Tour">City T</button>
+        <button data-enkelt="Mountain Bike">Mountain Bike</button>
+        <button data-enkelt="Trekking">Trekking</button>
+        <button data-enkelt="E-bike">E-bike</button>
     </nav>
 
-    <button class="luk">←</button>
+    <template>
+        <article>
 
-       <section class="detalje_side">
-        <article class="cykel">
-            <p class="kategorier"></p>
             <img src="" alt="">
             <h2></h2>
+            <p></p>
             <p class="pris"></p>
-            <p class="tekst"></p>
+
         </article>
-    </section>
+    </template>
 
+    <h1></h1>
 
+    <main>
+        <section class="detalje_side"></section>
+    </main>
 
-       <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const postId = urlParams.get("id");
-
-        document.querySelector("#menu-container");
-        let enkelt;
-        let alleData;
-        let filter = "cykler"
-
-        //lad vores funktion enkelt være
+    <script>
+        //fortæller siden at documentet skal loade indholdet og hente indhold fra start funktionen
         document.addEventListener("DOMContentLoaded", start);
-        //
+        let indhold;
+        //lader funktionen indhold blive
+        let dest = document.querySelector("section");
+        //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
 
-    function start() {
+        //???
+        document.querySelector("#menu-container");
+
+        function start() {
+            loadMenu();
             hentJson();
-            const filterKnapper = document.querySelectorAll("nav button"); //selector all - vælger alle buttons inde i nav'en
-            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerAlleData)); //knap er vores variabel navn, som man selv finder på
-            // document.querySelector("#detalje").style.display = "none";            skjulDetalje(); //kaldes på funtionen skulDetalje, da pop-up vinduet ikke skal vises i funktionen start
-            //          loadData(); //kaldet på funtionen loadData, da dataen skal loades fra sheetet
         }
-
-        //funktionen der filtrerer data fra vores sheet (json)
-        function filtrerAlleData() {
-            filter = this.dataset.data; //sæt variabel "filter" til aktuel værdi
-            document.querySelector(".valgt").classList.remove("valgt"); //fjern klassen valgt fra aktuel knap
-            this.classList.add("valgt");
-
-             visIndhold();
-
-        }
-        //loadMenu();
-
-        document.querySelector(".luk").addEventListener("click", () => {
-            history.back();
-        })
-        //Det der gør at knappen kommer tilbage til den sidste side
 
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
-            //devinerer vores URL, så vi ikke behøver skrive den helt ud
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel";
+
+            //definerer vores url, så den linker til vores hjemmeside
+
             let myJson = await fetch(url);
-            alleData = await myJson.json();
-            //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
-            //          enkelt = await myJson.json();
-            console.log(visIndhold);
+            //hent indhold fra json igennem vores URL
+            indhold = await myJson.json();
+            //indhold skal vente på at vise sig til json er blevet kaldt
             visIndhold();
-            //kalder på vores funktion: visIndhold
         }
+
+
         async function loadMenu() {
+
             let data = await fetch("nav.html");
             let navigation = await data.text();
             console.log("loadMenu", navigation);
             opretMenu(navigation);
+
         }
 
         function opretMenu(e) {
             document.querySelector("nav").innerHTML = e;
         }
 
-        function visIndhold() {
-            alleData.feed.entry.forEach(kategorier => { //loop igennem json data
-                if (kategorier == filter || filter == "cykler"); {
-                    document.querySelector(".kategorier").textContent = enkelt.kategorier;
-                    document.querySelector("h2").textContent = enkelt.titel;
-                    document.querySelector(".pris").textContent = enkelt.pris;
-                    document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
-                    document.querySelector("img").src = enkelt.billede.guid;
-                }
-            });
 
+        function visIndhold() {
+            indhold.forEach(enkelt => {
+
+                const klon = document.querySelector("template").cloneNode(true).content;
+                //fortæller vores content hvordan det skal fordeles i forhold til vores template
+                klon.querySelector("h2").textContent = enkelt.titel;
+                klon.querySelector(".pris").textContent = enkelt.pris;
+                klon.querySelector("p").innerHTML = enkelt.beskrivelse;
+                klon.querySelector("img").src = enkelt.billede.guid;
+                //fortæller hvilket indhold der skal være på vores side
+
+                dest.appendChild(klon);
+                dest.lastElementChild.addEventListener("click", () => {
+                    location.href = `detaljeside.html?id=${enkelt.id}`;
+                    //siger til vores side, at den skal klikke ind på detaljesiden (link), når man trykker på et billede
+                })
+            })
+
+            //document.querySelector("h1").textContent = indhold.title.rendered;
+            //document.querySelector("article").innerHTML = indhold.content.rendered;
         }
 
-        //alt indhold på selve siden
     </script>
 </body>
 
