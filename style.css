@@ -30,11 +30,16 @@ h1 {
     margin-left: 2.5rem;
 }
 
+.forside a {
+    text-decoration: none;
+    color: #498ce8;
+}
+
+
 /*MENU*/
-#menu{
+#menu {
     top: 0;
     background-color: white;
-
 }
 
 nav a {
@@ -42,18 +47,20 @@ nav a {
     font-size: 4rem;
     text-decoration: none;
     line-height: 2;
+    color: #498ce8;
+    font-weight: 600;
 
 }
 
 /*SEKUNDÆR MENU*/
 
-.menu2{
+.menu2 {
     text-align: center;
     justify-content: space-between;
 
 }
 
-nav{
+nav {
     color: blue;
 }
 
@@ -102,6 +109,7 @@ button {
     font-size: 3.5em;
 }
 
+
 .iframe {}
 
 /*SOCIALE MEDIER*/
@@ -139,8 +147,7 @@ button {
     display: inline-block;
     font-size: 2rem;
     font-family: sans-serif;
-    color: #498ce8
-
+    color: #498ce8;
 }
 
 /*Menuen når den er foldet ud*/
@@ -157,11 +164,11 @@ button {
 @media only screen and (max-width: 600px) {
 
     .forside {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 1rem;
-    padding: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-gap: 1rem;
+        padding: 3rem;
 
-}
+    }
 
 }
