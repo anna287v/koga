@@ -51,6 +51,7 @@
 
         function opretMenu(e) {
             document.querySelector("nav").innerHTML = e;
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
         }
 
         function visIndhold() {
@@ -58,6 +59,19 @@
             document.querySelector("section").innerHTML = indhold.content.rendered;
         }
 
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
     </script>
 </body>
 
