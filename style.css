@@ -128,10 +128,23 @@ button {
 
 .detalje_side {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(750px, 1fr));
-    grid-gap: 1rem;
-    padding: 10rem;
+    grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+    padding: 3rem;
+}
 
+.luk {
+    font-size: 2rem;
+    margin: 0 0;
+}
+
+.detalje_side h2 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.detalje_side p {
+    margin-right: 40rem;
+    font-family: sans-serif;
 }
 
 /*BURGER MENU*/
