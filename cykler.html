@@ -35,23 +35,29 @@
         <section class="cykler"></section>
     </main>
 
-    <!--   <script href="burger.js"></script>-->
-
-
     <script>
-        //fortæller siden at documentet skal loade indholdet og hente indhold fra json
+        //fortæller siden at documentet skal loade indholdet og hente indholdet fra funktionen "start"
         document.addEventListener("DOMContentLoaded", start);
 
         let filter = "alle";
         let indhold;
         let data;
 
+
         //lader funktionen indhold blive
         let dest = document.querySelector("section");
         //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
-        document.querySelector("#menu-container");
+
+
+        //       ?? -skal fjernes?
+        //       document.querySelector("#menu-container");
 
         function start() {
+
+            //            gør knapperne til filteringen klikbare
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerAlleData));
+
             hentJson();
             loadMenu();
         }
@@ -65,7 +71,6 @@
             visIndhold();
 
         }
-
 
         async function hentJson() {
             const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel?per_page=100";
@@ -94,7 +99,6 @@
         }
 
 
-
         function visIndhold() {
             indhold.forEach(enkelt => {
                 if (filter == "alle" || enkelt.kategorier == filter) {
@@ -120,9 +124,9 @@
                 }
             })
 
-            //document.querySelector("h1").textContent = indhold.title.rendered;
-            //document.querySelector("article").innerHTML = indhold.content.rendered;
+
         }
+
     </script>
 </body>
 

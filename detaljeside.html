@@ -40,17 +40,23 @@
     <script>
         //fortæller siden at documentet skal loade indholdet og hente indhold fra start funktionen
         document.addEventListener("DOMContentLoaded", start);
-        let indhold;
+
         //lader funktionen indhold blive
-        let dest = document.querySelector("section");
+        let indhold;
+
         //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
+        let dest = document.querySelector("section");
+
 
         //???
-        document.querySelector("#menu-container");
+        //       document.querySelector("#menu-container");
 
         function start() {
+
             loadMenu();
             hentJson();
+
+
         }
 
         async function hentJson() {
@@ -98,8 +104,7 @@
                 })
             })
 
-            //document.querySelector("h1").textContent = indhold.title.rendered;
-            //document.querySelector("article").innerHTML = indhold.content.rendered;
+
         }
 
     </script>
