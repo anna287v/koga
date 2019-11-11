@@ -70,6 +70,7 @@
 
         function opretMenu(e) {
             document.querySelector("nav").innerHTML = e;
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
         }
 
 
@@ -79,6 +80,20 @@
             document.querySelector(".pris").textContent = enkelt.pris;
             document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
             document.querySelector("img").src = enkelt.billede.guid;
+        }
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
         }
         //alt indhold på selve siden
     </script>

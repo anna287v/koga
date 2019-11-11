@@ -18,9 +18,12 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     grid-gap: 1rem;
     padding: 3rem;
+
 }
 
-
+.forside h3 {
+    color: dodgerblue;
+}
 
 /*MENU*/
 
@@ -139,7 +142,8 @@ button {
     display: inline-block;
     font-size: 2rem;
     font-family: sans-serif;
-    /*    background-color: black;*/
+    color: #498ce8
+        /*    background-color: black;*/
 }
 
 /*Menuen når den er foldet ud*/
@@ -149,24 +153,6 @@ button {
     transform-origin: top left;
     font-family: sans-serif;
     text-align: center;
-}
-
-/*Når siden er over 600px skal burger menuen ikke vises*/
-
-@media only screen and (min-width: 600px) {
-
-    #menuknap {
-        display: none;
-    }
-
-    #menu.hidden {
-        transform: translateX(0);
-        display: block;
-    }
-
-    #menu li {
-        display: inline-block;
-    }
 }
 
 /*BURGER SLUT*/
