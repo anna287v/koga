@@ -25,29 +25,40 @@ h1 {
     color: dodgerblue;
 }
 
+.forside p {
+    font-size: 1.3rem;
+    max-width: 550px;
+}
+
 /*MENU*/
+
+#menu{
+    top: 0;
+    background-color: white;
+
+}
+
+nav a {
+    font-family: sans-serif;
+    font-size: 4rem;
+    text-decoration: none;
+    line-height: 2;
+
+}
+
+/*sekundær mobil*/
+
+.menu2{
+    text-align: center;
+    justify-content: space-between;
+
+}
+
 
 /*HEADER MED NAV INDE I*/
 
-/*Det besøgte link*/
-header nav button:visited {
-    color: #fcb268;
-}
-
-/*Når man hover over links */
-header nav button:hover {
-    color: #fcb268;
-}
-
-/*Farven på knapperne når de bliver trykket på*/
-.valgt {
-    color: #fcb268;
-}
-
-/*Boksen rundt om knapperne*/
-header nav button {
-    /*Den ydre afstand fra boksens kant til den næste boks*/
-    margin: 0 1rem;
+nav{
+    color: blue;
 }
 
 /*Selve knappen*/
@@ -57,8 +68,9 @@ button {
     padding: 0;
     /*Fjerner kanten på knapperne*/
     border: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: sans-serif;
     background-color: white;
+    margin: 0 1rem;
 
 }
 
@@ -110,14 +122,17 @@ button {
 
 /*DETALJESIDE*/
 
+
+
 button {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     /*Den indre afstand i boksen*/
     padding: 0;
     /*Fjerner kanten på knapperne*/
     border: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: sans-serif;
     background-color: white;
+
 
 }
 
@@ -156,3 +171,15 @@ button {
 }
 
 /*BURGER SLUT*/
+
+@media only screen and (max-width: 600px) {
+
+    .forside {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 1rem;
+    padding: 3rem;
+
+}
+
+}
