@@ -9,7 +9,11 @@
 </head>
 
 <body>
-    <nav></nav>
+
+
+    <nav>
+    </nav>
+
 
     <nav class="menu2">
         <button data-enkelt="alle" class="valgt">Alle</button>
@@ -35,6 +39,8 @@
         <section class="cykler"></section>
     </main>
 
+    <script src="burger.js"></script>
+
     <script>
         //fortæller siden at documentet skal loade indholdet og hente indholdet fra funktionen "start"
         document.addEventListener("DOMContentLoaded", start);
@@ -57,6 +63,8 @@
             //            gør knapperne til filteringen klikbare
             const filterKnapper = document.querySelectorAll("nav button");
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerAlleData));
+
+
 
             hentJson();
             loadMenu();

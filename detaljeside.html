@@ -1,77 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title></title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <nav></nav>
 
-    <nav class="menu2">
-        <button data-enkelt="alle" class="valgt">Alle</button>
-        <button data-enkelt="Race">Race</button>
-        <button data-enkelt="City Tour">City T</button>
-        <button data-enkelt="Mountain Bike">Mountain Bike</button>
-        <button data-enkelt="Trekking">Trekking</button>
-        <button data-enkelt="E-bike">E-bike</button>
-    </nav>
 
-    <template>
-        <article>
 
-            <img src="" alt="">
+    <section>
+        <article class="cykel">
+            <button class="luk">◁</button>
             <h2></h2>
-            <p></p>
+            <img src="" alt="">
             <p class="pris"></p>
+            <p class="tekst"></p>
 
         </article>
-    </template>
-
-    <h1></h1>
-
-    <main>
-        <section class="detalje_side"></section>
-    </main>
+    </section>
 
     <script>
-        //fortæller siden at documentet skal loade indholdet og hente indhold fra start funktionen
         document.addEventListener("DOMContentLoaded", start);
 
-        //lader funktionen indhold blive
-        let indhold;
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get("id");
 
-        //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
-        let dest = document.querySelector("section");
-
-
-        //???
+        //        ???
         //       document.querySelector("#menu-container");
+        let enkelt;
+        //lad vores funktion enkelt være
+
+        //
 
         function start() {
-
-            loadMenu();
             hentJson();
-
-
+            loadMenu();
         }
+
+        document.querySelector(".luk").addEventListener("click", () => {
+            history.back();
+        })
+        //Det der gør at knappen kommer tilbage til den sidste side
 
         async function hentJson() {
-            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel";
-
-            //definerer vores url, så den linker til vores hjemmeside
+            const url = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-json/wp/v2/cykel/" + postId;
+            //devinerer vores URL, så vi ikke behøver skrive den helt ud
 
             let myJson = await fetch(url);
-            //hent indhold fra json igennem vores URL
-            indhold = await myJson.json();
-            //indhold skal vente på at vise sig til json er blevet kaldt
+            //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
+            enkelt = await myJson.json();
+            console.log(visIndhold);
             visIndhold();
+            //kalder på vores funktion: visIndhold
         }
-
-
         async function loadMenu() {
 
             let data = await fetch("nav.html");
@@ -87,26 +74,13 @@
 
 
         function visIndhold() {
-            indhold.forEach(enkelt => {
 
-                const klon = document.querySelector("template").cloneNode(true).content;
-                //fortæller vores content hvordan det skal fordeles i forhold til vores template
-                klon.querySelector("h2").textContent = enkelt.titel;
-                klon.querySelector(".pris").textContent = enkelt.pris;
-                klon.querySelector("p").innerHTML = enkelt.beskrivelse;
-                klon.querySelector("img").src = enkelt.billede.guid;
-                //fortæller hvilket indhold der skal være på vores side
-
-                dest.appendChild(klon);
-                dest.lastElementChild.addEventListener("click", () => {
-                    location.href = `detaljeside.html?id=${enkelt.id}`;
-                    //siger til vores side, at den skal klikke ind på detaljesiden (link), når man trykker på et billede
-                })
-            })
-
-
+            document.querySelector("h2").textContent = enkelt.titel;
+            document.querySelector(".pris").textContent = enkelt.pris;
+            document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
+            document.querySelector("img").src = enkelt.billede.guid;
         }
-
+        //alt indhold på selve siden
     </script>
 </body>
 
