@@ -97,7 +97,7 @@
 
             let data = await fetch("nav.html");
             let navigation = await data.text();
-            console.log("loadMenu", navigation);
+            //console.log("loadMenu", navigation);
             opretMenu(navigation);
 
         }
@@ -109,6 +109,8 @@
 
 
         function visIndhold() {
+            //her tømmer vi array'et så filteringen ikke kommer oveni alle cyklerne.
+            dest.textContent = "";
             indhold.forEach(enkelt => {
                 if (filter == "alle" || enkelt.kategorier == filter) {
 
@@ -137,7 +139,7 @@
         }
 
         function toggleMenu() {
-            console.log("toggleMenu");
+            //console.log("toggleMenu");
             document.querySelector("#menu").classList.toggle("hidden");
 
             let erSkjult = document.querySelector("#menu").classList.contains("hidden");
