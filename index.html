@@ -6,35 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koga center copenhagen</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
     <nav></nav>
-
-
     <div class="parent">
         <img class="splash" src="billeder/header-fastmovers-AOC.jpg">
-
     </div>
-
     <main>
         <h1></h1>
-
         <article class="forside">
             <h2></h2>
-
         </article>
         <section id="menu-container"></section>
-
     </main>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", start);
         let indhold;
         const dest = document.querySelector("#menu-container");
-
 
         function start() {
             hentJson();
@@ -51,12 +41,10 @@
         }
 
         async function loadMenu() {
-
             let data = await fetch("nav.html");
             let navigation = await data.text();
             console.log("loadMenu", navigation);
             opretMenu(navigation);
-
         }
 
         function opretMenu(e) {
@@ -68,7 +56,6 @@
             document.querySelector("h1").textContent = indhold.title.rendered;
             document.querySelector("article").innerHTML = indhold.content.rendered;
         }
-
 
         function toggleMenu() {
             console.log("toggleMenu");
@@ -84,8 +71,5 @@
         }
     </script>
 
-
-
 </body>
-
 </html>
