@@ -10,32 +10,33 @@
 </head>
 
 <body>
-    <nav></nav>
 
-
+    <nav>
+    </nav>
 
     <section>
         <button class="luk">←</button>
         <article class="detalje_side">
 
             <h2></h2>
-            <img src="" alt="">
-
+            <img class="my_image" src="" alt="">
             <p class="pris"></p>
             <p class="tekst"></p>
+
 
         </article>
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", start);
+        let enkelt;
+
 
         const urlParams = new URLSearchParams(window.location.search);
         const postId = urlParams.get("id");
+        //        const postId = 99;
+        document.addEventListener("DOMContentLoaded", start);
+        //        document.querySelector("#menu-container");
 
-
-        //       document.querySelector("#menu-container");
-        let enkelt;
         //lad vores funktion enkelt være
 
         //
@@ -57,7 +58,7 @@
             let myJson = await fetch(url);
             //Det der gør at vi kan hente vores URL og den her kan hente indhold fra Json
             enkelt = await myJson.json();
-            console.log(visIndhold);
+            console.log(myJson);
             visIndhold();
             //kalder på vores funktion: visIndhold
         }
@@ -65,7 +66,7 @@
 
             let data = await fetch("nav.html");
             let navigation = await data.text();
-            console.log("loadMenu", navigation);
+            //  console.log("loadMenu", navigation);
             opretMenu(navigation);
 
         }
@@ -81,7 +82,9 @@
             document.querySelector("h2").textContent = enkelt.titel;
             document.querySelector(".pris").textContent = enkelt.pris;
             document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
-            document.querySelector("img").src = enkelt.billede.guid;
+            document.querySelector(".my_image").src = enkelt.billede.guid;
+            // document.querySelector("img").src = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-content/uploads/2019/11/KWTM5302.jpg"
+            console.log("enkelt billede guid", enkelt.billede.guid)
         }
 
 
