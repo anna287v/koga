@@ -94,26 +94,40 @@ nav a {
 
 /*Selve knappen*/
 button {
-    font-size: 1.2rem;
+    font-size: 1rem;
     /*Den indre afstand i boksen*/
-    padding: 0;
+    padding: 10px;
     /*Fjerner kanten på knapperne*/
-    border: 0;
+    border: 1;
+    border-color: black;
     font-family: sans-serif;
     background-color: white;
     margin: 0 1rem;
+    transition: .6s ease-in-out;
+
+}
+
+button:hover {
+    border-style: solid;
+    transform: scale(1.3);
+}
+
+.valgt {
+    border-style: solid;
+    transform: scale(1.3);
+
 }
 
 /*HISTORIE*/
 .historie {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-gap: 1rem;
-    padding: 3rem;
+    padding: 1rem;
 }
 
 .historie p {
-    margin: 2.4rem;
+    margin: 2.5rem;
     line-height: 1.5;
 }
 
@@ -123,8 +137,13 @@ button {
     font-family: sans-serif;
 }
 
+.historie h2 {
+    margin-left: 2.4rem;
+    font-size: 1.5rem;
+}
+
 .koga_video {
-    margin: 4vw;
+    margin: 0 4vw;
     /*flex-basis: 300px;
     flex-grow: 1;
     display: flex;*/
@@ -257,25 +276,23 @@ button {
 
 /*BURGER SLUT*/
 
-/*FOOTER*/
+/***FOOTER****/
 
-.footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 1rem;
-    padding: 3rem;
+footer {
+    text-align: center;
+    background-color: #498ce8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.footer_baggrund {
-    background-color: #367DC1;
+/*Tekst i footer*/
+footer p {
     color: white;
-
-}
-
-.footer_baggrund a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+    padding-top: 0.5rem;
+    text-align: center;
+    width: 20rem;
 }
 
 

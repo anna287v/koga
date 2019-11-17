@@ -69,6 +69,7 @@
 
             hentJson();
             loadMenu();
+            loadFooter();
         }
 
 
@@ -150,6 +151,19 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
+        }
+
+        async function loadFooter() {
+            let data = await fetch("footer.html");
+            let footer = await data.text();
+            console.log("loadFooter", footer);
+            opretFooter(footer);
+        }
+
+
+        function opretFooter(e) {
+            document.querySelector("footer").innerHTML = e;
+
         }
     </script>
 </body>

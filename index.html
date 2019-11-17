@@ -25,7 +25,7 @@
         </article>
         <section id="menu-container"></section>
     </main>
-
+    <footer></footer>
     <script>
         document.addEventListener("DOMContentLoaded", start);
         let indhold;
@@ -34,6 +34,7 @@
         function start() {
             hentJson();
             loadMenu();
+            loadFooter();
         }
 
         async function hentJson() {
@@ -73,6 +74,19 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
+        }
+
+        async function loadFooter() {
+            let data = await fetch("footer.html");
+            let footer = await data.text();
+            console.log("loadFooter", footer);
+            opretFooter(footer);
+        }
+
+
+        function opretFooter(e) {
+            document.querySelector("footer").innerHTML = e;
+
         }
     </script>
 

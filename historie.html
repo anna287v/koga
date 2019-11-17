@@ -29,6 +29,8 @@
         <iframe width="100%" height="30px" src="https://www.youtube.com/embed/bJ1m1TKBkDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
+    <footer></footer>
+
     <script>
         let indhold;
         const dest = document.querySelector("#menu-container");
@@ -37,6 +39,7 @@
         function start() {
             hentJson();
             loadMenu();
+            loadFooter();
         }
 
         async function hentJson() {
@@ -49,7 +52,6 @@
         }
 
         async function loadMenu() {
-
             let data = await fetch("nav.html");
             let navigation = await data.text();
             console.log("loadMenu", navigation);
@@ -80,7 +82,23 @@
                 document.querySelector("#menuknap").textContent = "X";
             }
         }
+
+
+        async function loadFooter() {
+            let data = await fetch("footer.html");
+            let footer = await data.text();
+            console.log("loadFooter", footer);
+            opretFooter(footer);
+        }
+
+
+        function opretFooter(e) {
+            document.querySelector("footer").innerHTML = e;
+
+        }
     </script>
+
+
 </body>
 
 </html>

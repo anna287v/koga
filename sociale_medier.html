@@ -41,7 +41,6 @@
         }
 
         async function loadMenu() {
-
             let data = await fetch("nav.html");
             let navigation = await data.text();
             console.log("loadMenu", navigation);
