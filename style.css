@@ -90,7 +90,7 @@ nav a {
 .menu2 {
     text-align: center;
     justify-content: space-between;
-    margin-top: 6rem;
+    margin: 6rem 0 3rem;
 }
 
 /*Selve knappen*/
@@ -251,7 +251,21 @@ nav a {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 2.5rem;
-    padding: 0 4rem;
+    padding: 0 8rem;
+}
+
+.enkelt {
+
+    background-color: white;
+}
+
+.enkelt h2,
+p {
+    padding-left: 10px;
+}
+
+.cykler_baggrund {
+    background-color: rgba(200, 206, 206, 0.17);
 }
 
 
@@ -334,6 +348,7 @@ nav a {
     font-family: sans-serif;
     color: #498ce8;
     z-index: 2;
+    margin-left: 1rem;
 }
 
 /*Menuen når den er foldet ud*/
@@ -351,8 +366,9 @@ nav a {
 }
 
 .bar {
-    height: 9vh;
-    width: 100vw;
+    height: 15vh;
+    width: 100%;
+    left: 0;
     background-color: white;
     position: fixed;
     z-index: 2;
