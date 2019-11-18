@@ -30,7 +30,7 @@
             <img src="" alt="">
             <h2></h2>
             <p class="pris"></p>
-            <p class="mere"></p>
+
         </article>
     </template>
 
@@ -40,8 +40,9 @@
         <section class="cykler"></section>
     </main>
 
-    <footer></footer>
+
     <script src="burger.js"></script>
+    <footer></footer>
     <script>
         //fortæller siden at documentet skal loade indholdet og hente indholdet fra funktionen "start"
         document.addEventListener("DOMContentLoaded", start);
@@ -122,10 +123,10 @@
 
                     //fortæller vores content hvordan det skal fordeles i forhold til vores template
                     klon.querySelector("h2").textContent = enkelt.titel;
-                    klon.querySelector(".pris").textContent = enkelt.pris;
+                    klon.querySelector(".pris").textContent = enkelt.pris + ",-";;
 
                     klon.querySelector("img").src = enkelt.billede.guid;
-                    klon.querySelector(".mere").textContent = enkelt.ls_mere;
+
                     //fortæller hvilket indhold der skal være på vores side
 
                     dest.appendChild(klon);

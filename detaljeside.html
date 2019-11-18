@@ -18,11 +18,17 @@
         <button class="luk">←</button>
         <article class="detalje_side">
 
-            <h2></h2>
-            <img class="my_image" src="" alt="">
-            <p class="pris"></p>
-            <p class="tekst"></p>
-
+            <div class="detalje_img">
+                <img class="my_image" src="" alt="">
+            </div>
+            <div class="detalje_indhold">
+                <h2></h2>
+                <p class="vaegt"></p>
+                <p class="pris"></p>
+            </div>
+            <div class="detalje_tekst">
+                <p class="tekst"></p>
+            </div>
 
         </article>
     </section>
@@ -80,7 +86,9 @@
         function visIndhold() {
 
             document.querySelector("h2").textContent = enkelt.titel;
-            document.querySelector(".pris").textContent = enkelt.pris;
+
+            document.querySelector(".vaegt").textContent = enkelt.vgt + "KG";
+            document.querySelector(".pris").textContent = enkelt.pris + ",-";
             document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
             document.querySelector(".my_image").src = enkelt.billede.guid;
             // document.querySelector("img").src = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-content/uploads/2019/11/KWTM5302.jpg"

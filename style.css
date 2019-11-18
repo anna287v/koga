@@ -45,8 +45,10 @@ h2 {
 
 .splash {
     position: relative;
+    width: 100%;
     top: 0;
     left: 0;
+
 }
 
 .logo {
@@ -92,7 +94,7 @@ nav a {
 }
 
 /*Selve knappen*/
-button {
+.menu2 button {
     font-size: 1rem;
     /*Den indre afstand i boksen*/
     padding: 10px;
@@ -106,7 +108,7 @@ button {
 
 }
 
-button:hover {
+.menu2 button:hover {
     border-style: solid;
     transform: scale(1.3);
 }
@@ -255,24 +257,64 @@ button:hover {
 
 /*DETALJESIDE*/
 
+@media only screen and (min-width: 600px) {
+
+    .detalje_side {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        padding: 0 7vw;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .detalje_tekst {
+        grid-column: 1/2;
+        padding: 0 30px;
+    }
+}
+
 .detalje_side {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(800px, 1fr));
-    padding: 0 8rem;
+    width: 90vw;
+    margin: 0 auto;
+
+    position: relative;
+    box-sizing: border-box;
+}
+
+.detalje_img {
+    box-sizing: border-box;
+}
+
+.detalje_indhold {
+    display: block;
+    box-sizing: border-box;
+    margin-left: 5vw;
+}
+
+.detalje_tekst {
+    box-sizing: border-box;
+    display: block;
+    margin-left: 5vw;
 }
 
 .luk {
+
+    display: inline-block;
     font-size: 2rem;
-    margin: 0 0;
+    position: fixed;
+    margin-top: 45px;
 }
 
+
 .detalje_side h2 {
-    text-align: center;
     font-size: 3rem;
 }
 
 .detalje_side p {
-    margin-right: 40rem;
+    margin-right: 5rem;
+    font-size: 1.3em;
     font-family: sans-serif;
 }
 
