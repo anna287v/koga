@@ -15,7 +15,6 @@ h2 {
 }
 
 /*FORSIDE*/
-
 .forside {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
@@ -198,7 +197,52 @@ button:hover {
 }
 
 /*SOCIALE MEDIER*/
+.instagram-media {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 4rem;
+    padding: 3rem;
 
+}
+
+.some {
+    display: grid;
+    margin-top: 4rem;
+}
+
+.some h1 {
+    font-size: 2.3rem;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+
+.facebook {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 4rem;
+    padding: 3rem;
+
+
+}
+
+.face {
+    /*    position: relative;*/
+    overflow: hidden;
+}
+
+.face iframe {
+    top: 0;
+    left: 0;
+    max-width: 10 0%;
+    height: 100%;
+    border: 0;
+}
+
+.facebook p {
+    line-height: 1.5;
+    max-width: 450px;
+}
 
 /*CYKLER*/
 .cykler {
@@ -293,6 +337,11 @@ footer p {
     padding-top: 0.5rem;
     text-align: center;
     width: 20rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
 }
 
 

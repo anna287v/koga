@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title>Koga center copenhagen - Kontakt</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -33,7 +33,7 @@
         </article>
     </main>
 
-
+    <footer></footer>
     <script>
         document.addEventListener("DOMContentLoaded", start);
 
@@ -43,6 +43,7 @@
         function start() {
             hentJson();
             loadMenu();
+            loadFooter();
         }
 
         async function hentJson() {
@@ -85,6 +86,19 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
+        }
+
+        async function loadFooter() {
+            let data = await fetch("footer.html");
+            let footer = await data.text();
+            console.log("loadFooter", footer);
+            opretFooter(footer);
+        }
+
+
+        function opretFooter(e) {
+            document.querySelector("footer").innerHTML = e;
+
         }
     </script>
 </body>
