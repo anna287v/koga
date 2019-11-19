@@ -11,11 +11,16 @@
 
 <body>
 
-    <nav>
-    </nav>
+    <div class="bar">
+        <img class="logo" src="billeder/koga_owler_20160228_050919_original.png">
+        <nav>
+        </nav>
+    </div>
 
     <section>
+
         <button class="luk">←</button>
+
         <article class="detalje_side">
 
             <div class="detalje_img">
@@ -27,12 +32,14 @@
                 <p class="pris"></p>
             </div>
             <div class="detalje_tekst">
+                <p class="beskrivelse"></p>
                 <p class="tekst"></p>
             </div>
-
         </article>
     </section>
 
+
+    <footer></footer>
     <script>
         let enkelt;
 
@@ -50,6 +57,8 @@
         function start() {
             hentJson();
             loadMenu();
+            loadFooter();
+
         }
 
         document.querySelector(".luk").addEventListener("click", () => {
@@ -87,13 +96,16 @@
 
             document.querySelector("h2").textContent = enkelt.titel;
 
-            document.querySelector(".vaegt").textContent = enkelt.vgt + "KG";
-            document.querySelector(".pris").textContent = enkelt.pris + ",-";
+            document.querySelector(".vaegt").textContent = "Vægt: " + enkelt.vgt + " KG";
+            document.querySelector(".pris").textContent = "Pris: " + enkelt.pris + " DKK";
             document.querySelector(".tekst").innerHTML = enkelt.beskrivelse;
+            document.querySelector(".beskrivelse").innerHTML = enkelt.overskrift;
             document.querySelector(".my_image").src = enkelt.billede.guid;
             // document.querySelector("img").src = "http://annaseverine.dk/kea/kogaWP/wordpress/wp-content/uploads/2019/11/KWTM5302.jpg"
             console.log("enkelt billede guid", enkelt.billede.guid)
+
         }
+
 
 
         function toggleMenu() {
@@ -107,6 +119,19 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
+        }
+
+        async function loadFooter() {
+            let data = await fetch("footer.html");
+            let footer = await data.text();
+            console.log("loadFooter", footer);
+            opretFooter(footer);
+        }
+
+
+        function opretFooter(e) {
+            document.querySelector("footer").innerHTML = e;
+
         }
 
         //alt indhold på selve siden
