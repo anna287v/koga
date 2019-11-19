@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 img {
     width: 100%;
 }
@@ -15,21 +19,20 @@ h2 {
 }
 
 /*MENU START*/
+nav {
+    text-align: right;
+    z-index: 40;
+    position: fixed;
+    top: 0;
 
-
+}
 
 nav a {
     font-family: sans-serif;
     font-size: 1rem;
     text-decoration: none;
-    line-height: 6rem;
     color: #337CBF;
     font-weight: 600;
-}
-
-/*Det besøgte link*/
-nav a:visited {
-    color: blue;
 }
 
 /*Når man hover over links */
@@ -38,18 +41,16 @@ nav a:hover {
 }
 
 li {
-    float: right;
-    justify-content: space-between;
-    padding: 2rem;
-    text-align: center;
-    right: 2vw;
-    top: 0vw;
+    padding: 1rem;
+    align-content: flex-end;
 }
 
 ul {
-    background-color: peachpuff;
+    background-color: white;
     width: 100vw;
     height: 60px;
+    margin: 0;
+
 }
 
 /*DROPDOWN START */
