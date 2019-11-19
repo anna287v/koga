@@ -29,19 +29,21 @@ nav {
 
 nav a {
     font-family: sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #337CBF;
-    font-weight: 600;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-right: 30px;
 }
 
 /*Når man hover over links */
 nav a:hover {
-    color: white;
+    color: #66b0f4;
 }
 
 li {
-    padding: 1rem;
+    padding: 1rem 0;
     align-content: flex-end;
 }
 
@@ -64,7 +66,7 @@ ul {
 }
 
 .dropdown .drop li {
-    font-size: 600px;
+    font-size: 16px;
     border: none;
     outline: none;
     margin: 0;
@@ -73,22 +75,39 @@ ul {
 .dropdown_indhold {
     display: none;
     position: absolute;
-    min-width: 160px;
-    z-index: 1;
-    background-color: palevioletred;
+    background-color: rgba(73, 140, 232, 0.79);
     list-style-type: none;
     text-align: left;
+    line-height: 2em;
+    top: 4vw;
 }
 
-.dropdown_indhold li {
+.dropdown:hover .dropdown_indhold {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown_indhold button {
     float: none;
-    color: aquamarine;
+    color: #498ce8;
+    text-transform: uppercase;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    /*Den indre afstand i boksen*/
+    padding: 0;
+    /*Fjerner kanten på knapperne*/
+    border: 0;
+    background-color: none;
 }
 
-.dropdown_indhold a:hover {
+i {}
+
+.dropdown_indhold li:hover {
     background-color: purple;
 }
 
