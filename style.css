@@ -19,7 +19,7 @@ h2 {
 }
 
 /*MENU START*/
-nav {
+.menu1 {
     text-align: right;
     z-index: 40;
     position: fixed;
@@ -27,7 +27,7 @@ nav {
 
 }
 
-nav a {
+.menu1 a {
     font-family: sans-serif;
     font-size: 1.2rem;
     text-decoration: none;
@@ -38,7 +38,7 @@ nav a {
 }
 
 /*Når man hover over links */
-nav a:hover {
+.menu1 a:hover {
     color: #66b0f4;
 }
 
@@ -57,7 +57,7 @@ ul {
 
 
 /*DROPDOWN START */
-nav li {
+.menu1 li {
     list-style-type: none;
     text-align: right;
 }
@@ -65,7 +65,7 @@ nav li {
 
 
 
-nav#dropdown_nav {
+.menu1 #dropdown_nav {
     display: none;
 
 }
@@ -118,6 +118,12 @@ li.filter {
 .dropdown-content {
     padding: 0;
     padding-top: 13px;
+    background-color: rgba(73, 140, 232, 0.54);
+    min-width: 150px;
+    min-height: 300px;
+    width: 20px;
+    left: 20px;
+
 }
 
 
@@ -129,10 +135,11 @@ li.filter {
     letter-spacing: 0.12rem;
     text-transform: uppercase;
     color: white;
+    font-family: sans-serif;
 }
 
 .dropdown-content li:hover {
-    background-color: var(--blue);
+    background-color: #2d68b9;
     cursor: pointer;
 
 }
@@ -418,7 +425,6 @@ i {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 2.5rem;
     padding: 0 8rem;
-
 }
 
 .enkelt {
@@ -440,13 +446,15 @@ p {
 
 .cykler_baggrund {
     background-color: rgba(200, 206, 206, 0.13);
+
 }
 
 /*SEKUNDÆR MENU*/
 .menu2 {
+    display: block;
     text-align: center;
     justify-content: space-between;
-    margin: 6rem 0 3rem;
+    margin: 8rem 0 3rem;
 
 }
 
@@ -457,16 +465,24 @@ p {
     padding: 10px;
     /*Fjerner kanten på knapperne*/
     font-family: sans-serif;
-    margin: 0 1rem;
+    margin: 0 0.2rem;
     cursor: pointer;
-
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 460;
+    color: #2d68b9;
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.menu2 button:hover {}
+
+.menu2 button:hover {
+    border-bottom: 2px solid darkblue;
+    border-bottom-width: thin;
+}
 
 .valgt {
-    border-style: solid;
-    transform: scale(1.3);
+    border-bottom: darkblue;
+    border-bottom-width: thin;
 
 }
 
