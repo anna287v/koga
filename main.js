@@ -10,12 +10,6 @@ let data;
 let dest = document.querySelector("section");
 //definerer funktionen dest som section så den bliver defineret her og man derfor ikke behøver kalder den længere nede
 
-
-//       ?? -skal fjernes?
-//       document.querySelector("#menu-container");
-
-
-
 function start() {
     const filterKnapper = document.querySelectorAll("nav button");
     //            gør knapperne til filteringen klikbare

@@ -53,7 +53,7 @@ li {
 ul {
     background-color: white;
     width: 100vw;
-    height: 60px;
+    height: 100vh;
     margin: 0;
 
 }
@@ -67,14 +67,6 @@ ul {
 
 .menu1 #dropdown_nav {
     display: none;
-}
-
-li.filter {
-    display: none;
-}
-
-.dropdown b {
-    font-size: 3rem;
 }
 
 .dropdown #dropdownbtn {
@@ -108,7 +100,6 @@ li.filter {
 
 }
 
-
 .dropdown-content button {
     padding: 20px;
     text-align: left;
@@ -126,10 +117,10 @@ li.filter {
 .dropdown-content button:hover {
     background-color: #a7c3ea;
     cursor: pointer;
-
 }
 
 /*DROPDOWN SLUT*/
+
 .logo {
     position: absolute;
     width: 150px;
@@ -152,51 +143,12 @@ li.filter {
 
 /*Selve burger knappen*/
 #menuknap {
-    display: inline-block;
+    position: fixed;
+    left: 90%;
     font-size: 2rem;
     font-family: sans-serif;
+    color: #337cbf;
 
-}
-
-
-
-
-/*Når siden er over 600px skal burger menuen ikke vises*/
-@media only screen and (min-width: 600px) {
-
-    #menuknap {
-        display: none;
-    }
-
-    #menu.hidden {
-        transform: translateX(0);
-        display: block;
-    }
-
-    #menu li {
-        display: inline-block;
-    }
-}
-
-/*BURGER SLUT*/
-
-
-
-
-@media only screen and (min-width: 600px) {
-
-    #menuknap {
-        display: none;
-    }
-
-    #menu.hidden {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    #menu li {
-        display: inline-block;
-    }
 }
 
 /*BURGER SLUT*/
@@ -244,6 +196,7 @@ li.filter {
     margin: 10px;
     font-weight: 460;
     font-size: 2.3rem;
+    margin-top: 4vw;
 }
 
 
@@ -267,18 +220,6 @@ li.filter {
     text-align: left;
     font-size: 24px;
 }
-
-/*
-.cykler_forside h3 {
-    position: absolute;
-    top: 0vw;
-}
-
-.tekst_container {
-    position: relative;
-}
-*/
-
 
 /*HISTORIE*/
 .historie {
@@ -315,9 +256,6 @@ li.filter {
 
 .koga_video {
     margin: 0 4vw;
-    /*flex-basis: 300px;
-    flex-grow: 1;
-    display: flex;*/
     justify-content: space-around;
     align-items: center;
     position: relative;
@@ -382,57 +320,7 @@ li.filter {
     font-weight: 360;
 }
 
-/*SOCIALE MEDIER*/
-.instagram-media {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 4rem;
-    padding: 3rem;
-}
 
-.some {
-    display: grid;
-    margin-top: 4rem;
-}
-
-.some h1 {
-    font-size: 2.3rem;
-    font-family: sans-serif;
-    text-align: center;
-
-}
-
-.facebook {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    grid-gap: 4rem;
-    padding: 3rem;
-}
-
-.face {
-    /*    position: relative;*/
-    overflow: hidden;
-}
-
-.face iframe {
-    top: 0;
-    left: 0;
-    max-width: 10 0%;
-    height: 100%;
-    border: 0;
-}
-
-.facebook p {
-    line-height: 1.5;
-    max-width: 450px;
-    background-color: white;
-    padding: 3em;
-
-}
-
-.medier_baggrund {
-    background-color: rgba(200, 206, 206, 0.17);
-}
 
 /*CYKLER*/
 .cykler {
@@ -440,6 +328,7 @@ li.filter {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 2.5rem;
     padding: 0 8rem;
+    padding-top: 0;
 }
 
 .enkelt {
@@ -452,7 +341,6 @@ li.filter {
 
 .enkelt:hover {
     transform: scale(1.05);
-
 }
 
 .enkelt h2,
@@ -462,19 +350,22 @@ p {
 
 .cykler_baggrund {
     background-color: rgba(200, 206, 206, 0.13);
-
 }
 
-
-
+.cykler_baggrund h1 {
+    margin-top: 10vw;
+    text-align: center;
+    font-weight: 290;
+    color: #0367c3;
+    font-size: 2.3rem;
+}
 
 /*SEKUNDÆR MENU*/
 .menu2 {
     display: block;
     text-align: center;
     justify-content: space-between;
-    margin: 8rem 0 3rem;
-
+    margin: 3rem 0 0;
 }
 
 /*Selve knappen*/
@@ -506,26 +397,6 @@ p {
 }
 
 /*DETALJESIDE*/
-
-@media only screen and (min-width: 600px) {
-
-    .detalje_side {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        padding: 0 7vw;
-        margin: 0 auto;
-        padding-left: 0;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-
-    .detalje_tekst {
-        grid-column: 1/2;
-        padding: 0 30px;
-    }
-}
-
 .detalje_side {
     width: 90vw;
     margin: 0 auto;
@@ -617,8 +488,8 @@ footer a {
     .cykler_forside {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        padding: 5vw 7vw 7vw;
-        margin: 0 auto;
+        padding: 0 7vw 7vw;
+        margin: 0;
         grid-gap: 1.5rem;
 
     }
@@ -663,5 +534,61 @@ footer a {
 @media only screen and (min-width: 600px) {
     .historie {
         padding: 0 8rem 0 8rem;
+    }
+}
+
+/*Når siden er over 600px skal burger menuen ikke vises*/
+@media only screen and (min-width: 600px) {
+
+    #menuknap {
+        display: none;
+    }
+
+    #menu.hidden {
+        transform: translateX(0);
+        display: block;
+    }
+
+    #menu li {
+        display: inline-block;
+    }
+
+    ul {
+        height: 60px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    #menuknap {
+        display: none;
+    }
+
+    #menu.hidden {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    #menu li {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .detalje_side {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        padding: 0 7vw;
+        margin: 0 auto;
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .detalje_tekst {
+        grid-column: 1/2;
+        padding: 0 30px;
     }
 }
