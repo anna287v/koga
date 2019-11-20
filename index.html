@@ -13,15 +13,62 @@
     <nav>
     </nav>
 
-<div class="parent">
-    <img class="splash" src="billeder/header-fastmovers-AOC.png">
-</div>
+    <div class="parent">
+        <video class="img_video" autoplay muted loop id="video">
+            <source src="billeder/koga_brug.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="scroll">
+        <a href="#forside">
+
+            <p> <i class="arrow down"></i></p>
+
+
+        </a>
+    </div>
+    <section id="forside">
+        <div class="cykler_forside">
+            <h2>POPULÆRE MODELLER</h2>
+            <div class="cykel1_forside">
+                <a href="detaljeside.html?id=65">
+                    <img src="billeder/KKRD5621.jpg">
+                </a>
+                <h2>KIMERA ROAD PREMIUM</h2>
+                <p>24.999,00 DKK</p>
+
+            </div>
+
+            <div class="cykel1_forside">
+                <a href="detaljeside.html?id=63">
+                    <img src="billeder/KKRP5620.jpg">
+                </a>
+                <h2>KIMERA ROAD PRO</h2>
+                <p>29.999,00 DKK</p>
+            </div>
+            <div class="cykel1_forside">
+                <a href="detaljeside.html?id=52">
+                    <img src="billeder/KPNL0302%20grijs%20vrij.jpg">
+                </a>
+                <h2>E-Nova NuVinci Lady</h2>
+                <p>27.999,00 DKK</p>
+            </div>
+    </section>
+    </div>
+
+
     <main>
+
+
         <h1></h1>
-        <article class="forside">
+
+
+        <article class="main_indhold">
             <h2></h2>
+            <h3></h3>
         </article>
         <section id="menu-container"></section>
+
     </main>
     <footer></footer>
 
@@ -59,6 +106,7 @@
 
         function visIndhold() {
             document.querySelector("h1").textContent = indhold.title.rendered;
+            document.querySelector("h3").textContent = indhold.content.rendered;
             document.querySelector("article").innerHTML = indhold.content.rendered;
         }
 

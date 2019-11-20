@@ -16,6 +16,7 @@ h1 {
 
 h2 {
     font-family: sans-serif;
+    font-weight: 360;
 }
 
 /*MENU START*/
@@ -62,12 +63,8 @@ ul {
     text-align: right;
 }
 
-
-
-
 .menu1 #dropdown_nav {
     display: none;
-
 }
 
 li.filter {
@@ -80,98 +77,58 @@ li.filter {
 
 .dropdown #dropdownbtn {
     background-color: inherit;
-
 }
-
 
 #dropdown_nav {
     display: none;
     position: absolute;
-    background-color: var(--transparent-blue);
     line-height: 2rem;
     top: 4vw;
-
-
-
-
-
-}
-
-
-.dropdown-content a:hover {
-    background-color: #f0f0f0;
-
 }
 
 .dropdown:hover #dropdown_nav {
     display: block;
-
-
 }
 
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
-
 }
 
 .dropdown-content {
     padding: 0;
     padding-top: 13px;
-    background-color: rgba(73, 140, 232, 0.54);
+    background-color: white;
     min-width: 150px;
-    min-height: 300px;
+    min-height: 250px;
     width: 20px;
     left: 20px;
 
 }
 
 
-.dropdown-content li {
+.dropdown-content button {
     padding: 20px;
     text-align: left;
     width: 100%;
     font-size: 0.8rem;
-    letter-spacing: 0.12rem;
     text-transform: uppercase;
-    color: white;
+    color: #337CBF;
     font-family: sans-serif;
+    line-height: 0.5;
+    border: 0;
+    font-weight: 600;
+
 }
 
-.dropdown-content li:hover {
-    background-color: #2d68b9;
+.dropdown-content button:hover {
+    background-color: #a7c3ea;
     cursor: pointer;
 
 }
 
-i {
-    border: solid var(--dark-blue);
-    border-width: 0 1px 1px 0;
-    display: inline-block;
-    padding: 4px;
-    margin-bottom: 4px;
-    margin-left: 7px;
-
-}
-
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
-
 /*DROPDOWN SLUT*/
 
-/*BAR TIL NAVIGATIONEN*/
-/*
-.bar {
-    top: 0vw;
-    display: flex;
-    width: 100vw;
-    height: 75px;
-    background-color: red;
-
-}
-*/
 
 .logo {
     position: absolute;
@@ -198,6 +155,7 @@ i {
     display: inline-block;
     font-size: 2rem;
     font-family: sans-serif;
+
 }
 
 
@@ -244,42 +202,69 @@ i {
 /*BURGER SLUT*/
 
 /*FORSIDE*/
-.forside {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    grid-gap: 1rem;
-    padding: 3rem;
-}
 
-
-.forside h3 {
-    color: dodgerblue;
-}
-
-.forside p {
-    font-size: 1.3rem;
-    max-width: 550px;
-    margin-left: 2.5rem;
-}
-
-.forside a {
-    text-decoration: none;
-    color: #498ce8;
-}
-
-.parent {
+.img_video {
+    width: 99vw;
+    height: 90vh;
     position: relative;
-    top: 0;
-    left: 0;
+    margin-top: 2.5rem;
+    overflow: hidden;
+    object-fit: cover;
+
 }
 
-.splash {
+
+
+.cykler_forside {
+    padding: 0 0 20rem;
+    background-color: rgba(200, 206, 206, 0.17);
+    padding: 5vw;
+
+
+}
+
+.cykler_forside h2 {
+    grid-column: 1/4;
+    text-align: center;
+    margin: 10px;
+    font-weight: 460;
+    font-size: 2.3rem;
+}
+
+
+
+.cykel1_forside {
+    padding: 1rem;
+    background-color: white;
+    transition: 0.5s all;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+}
+
+/*
+
+.cykel1_forside:hover {
+    transform: scale(1.05);
+}
+*/
+.cykel1_forside h2 {
+    text-align: left;
+    font-size: 24px;
+}
+
+/*
+.cykler_forside h3 {
+    position: absolute;
+    top: 0vw;
+}
+
+.tekst_container {
     position: relative;
-    width: 100%;
-    top: 0;
-    left: 0;
-
 }
+*/
+
 
 /*HISTORIE*/
 .historie {
@@ -360,11 +345,20 @@ i {
 .kontakt p {
     font-family: sans-serif;
     font-size: 1.3rem;
+    font-weight: 260;
+    padding: 0;
 }
 
 .kontakt h1 {
     font-family: sans-serif;
     font-size: 2.3rem;
+    font-weight: 460;
+}
+
+.kontakt h2 {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-weight: 360;
 }
 
 /*SOCIALE MEDIER*/
@@ -436,7 +430,8 @@ i {
 }
 
 .enkelt:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+
 }
 
 .enkelt h2,
@@ -448,6 +443,10 @@ p {
     background-color: rgba(200, 206, 206, 0.13);
 
 }
+
+
+
+
 
 /*SEKUNDÆR MENU*/
 .menu2 {
@@ -480,9 +479,9 @@ p {
     border-bottom-width: thin;
 }
 
-.valgt {
-    border-bottom: darkblue;
-    border-bottom-width: thin;
+.menu2 button.valgt {
+    border-bottom: 1px solid darkblue;
+    outline: none;
 
 }
 
@@ -559,6 +558,8 @@ footer {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100vw;
+    bottom: 0vw;
 }
 
 /*Tekst i footer*/
@@ -576,14 +577,58 @@ footer a {
 
 
 /*MEDIA QUERIES*/
-@media only screen and (max-width: 600px) {
 
-    .forside {
+@media only screen and (min-width: 600px) {
+    .main_indhold {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
         grid-gap: 1rem;
         padding: 3rem;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    .cykler_forside {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 5vw 7vw 7vw;
+        margin: 0 auto;
+        grid-gap: 1.5rem;
 
     }
 
+    .arrow down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        font-size: 3rem;
+
+    }
+
+    i {
+        position: absolute;
+        top: 40vw;
+        left: 48%;
+        background-color: transparent;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 15px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .img_video {
+        width: 96vw;
+        height: 30%;
+        position: relative;
+        margin-top: 2.5rem;
+        overflow: hidden;
+        object-fit: cover;
+
+    }
 }
