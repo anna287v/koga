@@ -20,6 +20,7 @@ h2 {
 }
 
 /*MENU START*/
+
 .menu1 {
     text-align: right;
     z-index: 40;
@@ -214,11 +215,26 @@ li.filter {
 }
 
 
+.main_indhold p {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-weight: 260;
+    padding: 3vw 3vw 0 3vw;
+}
+
+.main_indhold a {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: 460;
+    text-decoration: none;
+    color: #337CBF;
+}
+
 
 .cykler_forside {
     padding: 0 0 20rem;
     background-color: rgba(200, 206, 206, 0.17);
-    padding: 5vw;
+
 
 
 }
